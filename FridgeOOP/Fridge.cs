@@ -69,7 +69,7 @@ namespace FridgeOOP
             {
                 Console.WriteLine("Here is some lukewarm water!");
             }
-            else if(dispenserType == "deluxe dispenser")
+            else if (dispenserType == "deluxe dispenser")
             {
                 Console.WriteLine("Enjoy your perfect ice water!");
             }
@@ -77,8 +77,61 @@ namespace FridgeOOP
             {
                 Console.WriteLine("What's gonna come out?  It's a surprise!");
             }
+        }
+        
 
-            //
+        //change bulb method
+        public string ChangeBulbs()
+        {
+            if(bulbsWork == false)
+            {
+                bulbsWork = true;
+                return "The bulbs have been changed.";
+            }
+            else
+            {
+                return "The bulbs don't have to be changed.";
+            }
+
+        }
+        
+
+        //give food method
+        public void RemoveFood(int foodRemoved)
+        {
+            foodAmount -= foodRemoved;//doesn't return anything, but does affect a field
+        }
+
+
+        //check food supplies method
+        public string CheckFoodSuuplies()
+        {
+            if (foodAmount >= 80)
+            {
+                return "Fully stocked.";
+            }
+            else if (80 > foodAmount && foodAmount > 40)
+            {
+                return "Getting Low.";
+            }
+            else
+            {
+                return "Time to grocery shop!";
+            }
+        }
+
+        //clean fridge method
+        public string Clean()
+        {
+            if(isClean == false)
+            {
+                isClean = true;
+                return "The fridge is now clean.";
+            }
+            else
+            {
+                return "The fridge is already clean.";
+            }
         }
     }
 }
