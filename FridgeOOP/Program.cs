@@ -15,7 +15,7 @@ namespace FridgeOOP
             //Prompt user to choose what to do with the fridge
             //Call methods on fridge object to do what user wants
 
-            string userChoice = Console.ReadLine();
+            int userChoice;
             do
             {
                 Console.WriteLine("Hello, welcome to the fridge app.");
@@ -29,10 +29,55 @@ namespace FridgeOOP
                 Console.WriteLine("To restart, type 7.");
                 Console.WriteLine("To quit, type 8.");
 
-                
+                Fridge userFridge = new Fridge(false, "deluxe dispenser", 70, true);
+               userChoice = int.Parse(Console.ReadLine());
+                switch (userChoice)
+                {
+                    case 1:
+                        userFridge.DispenseWater();
+                        break;
+                    case 2:
+                        Console.WriteLine(userFridge.ChangeBulbs());
+                        break;
 
+                    case 3:
+                        Console.WriteLine(userFridge.Clean());
+                        break;
 
-            } while (userChoice != "8");
+                    case 4:
+                        Console.WriteLine("How much food are you removing?");
+                        int foodRemoved = int.Parse(Console.ReadLine());
+                        userFridge.RemoveFood(foodRemoved);
+                        Console.WriteLine("Remaining food amount is " + userFridge.FoodAmount);
+                        break;
+
+                    case 5:
+                        Console.WriteLine(userFridge.CheckFoodSupplies()); 
+                        break;
+
+                    case 6:
+                        Console.WriteLine("The fridge is clean: " + userFridge.IsClean);
+                        Console.WriteLine("The type of dispenser: " + userFridge.DispenserType);
+                        Console.WriteLine("The amount of foor remaining: " + userFridge.FoodAmount);
+                        Console.WriteLine("Do the light bulbs work? " + userFridge.BulbsWork);
+                        break;
+
+                    case 7:
+                        break;
+
+                    case 8:
+                        break;
+
+                    default:
+                        Console.WriteLine("Please enter a valid number");
+                        break;
+
+                }
+            } while ((userChoice != 8) || (userChoice==7));
+            if (userChoice == 8)
+            {
+                Console.WriteLine("You have quit the program.");
+            }
         }
     }
 }

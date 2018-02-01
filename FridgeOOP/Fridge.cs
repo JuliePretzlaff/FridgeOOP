@@ -104,13 +104,13 @@ namespace FridgeOOP
 
 
         //check food supplies method
-        public string CheckFoodSuuplies()
+        public string CheckFoodSupplies()
         {
             if (foodAmount >= 80)
             {
                 return "Fully stocked.";
             }
-            else if (80 > foodAmount && foodAmount > 40)
+            else if (foodAmount > 40)
             {
                 return "Getting Low.";
             }
